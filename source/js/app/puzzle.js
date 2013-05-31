@@ -114,7 +114,7 @@ Puzzler.Board.prototype.clearBoard = function() {
 		$(this).removeClass();
 	})
 
-	// Remove delegated click event on all tiles and then remove all li items from #puzzleItems list.
+	// Remove delegated click event on all tiles and then remove all li items from #puzzleTiles list.
 	$('#puzzleTiles').off('click', 'li');
 	$('#puzzleTiles').empty();
 }
