@@ -3,10 +3,12 @@ $(document).ready(function() {
 	board.getNewPuzzle();
 	board.activateTiles();
 
+	// 'Check Solution' button
 	$('#buttons ul li:first-child').click(function (e) {
 		board.sendSolution();
 	})
 
+	// 'New Puzzle' button
 	$('#buttons ul li:last-child').click(function (e) {
 		board.clearBoard();
 		board = new Puzzler.Board();
