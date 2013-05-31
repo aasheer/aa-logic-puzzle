@@ -1,0 +1,146 @@
+/* Puzzle Styles */
+
+/* Mixins and variables */
+@mixin hint-position($y_val) {
+	background-position: 50% $y_val !important;
+}
+
+@mixin ul-reset() {
+	list-style-type: none;
+	padding: 0;
+}
+
+@mixin set-cursor {
+	cursor: pointer;
+	cursor: hand;
+}
+
+$img-path: '../img';
+/* Mixins and variables */
+
+
+#puzzleBg {
+	margin: 0 auto;
+	width: 608px;
+	height: 714px;
+	background: url("#{$img-path}/Test_03.jpg");
+	background-repeat: no-repeat;
+	padding-top: 50px;
+
+	#title { 
+		margin: 0 0 15px 40px;
+		font-size: 425%;
+		color: #7C1B1B;
+		text-align: center;
+	}
+
+	#columnHints {
+		margin: 0 0 0 115px;
+		width: 424px;
+
+		ul {
+			margin: 0;
+			@include ul-reset;
+
+			li {
+				width: 100px;
+				height: 35px;
+				display: inline-block;
+				background-image: url("#{$img-path}/untitled.png");
+				background-repeat: no-repeat;
+				background-position: 50% 0;
+			}
+		}
+	}
+	
+	#rowHints {
+		margin: 0 10px 0 70px;
+		width: 21px;
+		float: left;
+
+		ul {
+			margin: 40px 0 0 0;
+			@include ul-reset;	
+
+			li {
+				margin-bottom: 63px;
+				width: 21px;
+				height: 35px;
+				display: inline-block;
+				background-image: url("#{$img-path}/untitled.png");
+				background-repeat: no-repeat;	
+			}
+		}
+	}
+
+	.hint0 { @include hint-position(0px); }
+	.hint1 { @include hint-position(-50px); }
+	.hint2 { @include hint-position(-100px); }
+	.hint3 { @include hint-position(-150px);  }
+	.hint4 { @include hint-position(-200px);  }
+	.hint5 { @include hint-position(-250px);  }
+	.hint6 { @include hint-position(-300px);  }
+	.hint7 { @include hint-position(-350px);  }
+	.hint8 { @include hint-position(-400px);  }
+	.hint9 { @include hint-position(-450px);  }
+
+	#board {
+		margin: 0 65px 25px 0;
+		width: 435px;
+		height: 313px;
+		float: right;
+		background: url("#{$img-path}/Untitled-3.png");
+		background-repeat: no-repeat;
+
+		#puzzleTiles {
+			margin:0;
+			@include ul-reset;
+
+			li {
+				display: inline-block;
+				width: 100px;
+				height: 100px;
+				margin: 0 8px 0 0;
+				@include set-cursor;	
+			}
+
+			.tile {
+				background: url("#{$img-path}/untitled2.png");
+				background-repeat: no-repeat;
+			}
+
+		}
+
+	}
+
+	#buttons {		
+		margin: 0 0 0 110px;
+		padding: 5px 0;
+		width: 424px;
+		height: 67px;
+		background: url("#{$img-path}/Untitled-4.png");
+		background-repeat: no-repeat;
+		text-align: center;
+		clear: both;
+
+		ul {
+			margin: 0;
+			padding: 7px 0 0 0;
+			width: 100%;
+			list-style-type:none;	
+
+			li {
+				margin: 0 auto;
+				display: inline-block;
+				width: 175px;
+				padding: 10px;
+				color: #FFF;
+				border-radius: 5px; 
+				@include set-cursor;
+
+				&:first-child {	background-color: #27404F; };
+				&:last-child { background-color: #A90101; };
+			}
+		}
+	}
+}
