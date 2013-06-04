@@ -37,10 +37,10 @@ Puzzler.Board.prototype.getNewPuzzle = function() {
 }
 
 Puzzler.Board.prototype.newPuzzle = function(id, r_hints, c_hints) {
+    var obj = this;
 	var row_hints = r_hints;
 	var col_hints = c_hints;
     var tiles = [];
-    var obj = this;
 
     // Add css class to each 'hint' li, corresponding to row/col hints from JSON data. 
     //The classes adjust CSS sprite position accordingly, to reveal the correct hint images.
@@ -69,7 +69,7 @@ Puzzler.Board.prototype.activateTiles = function() {
 
     // Delegate click event for each puzzle tile, represented by li items in the #puzzleTiles list.
 	$('#puzzleTiles').on("click", "li", function (e) {
-		tileOn = parseInt($(this).attr('data-position'));	
+		tileOn = parseInt($(this).attr('data-position'), 10);	
 
 		if ( $(this).hasClass('tile') ) {
 	    	$(this).removeClass('tile');
@@ -118,7 +118,6 @@ Puzzler.Board.prototype.clearBoard = function() {
 	$('#puzzleTiles').off('click', 'li');
 	$('#puzzleTiles').empty();
 }
-
 
 
 
